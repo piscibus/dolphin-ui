@@ -1,9 +1,11 @@
 import React from 'react';
 
-export function Counter() {
+function Authentication() {
   return (
-    <div>
-        Welcome to dolphin
+    <div className='auth-wrapper'>
+        
     </div>
   );
 }
+
+export default Authentication
