@@ -1,2 +1,6 @@
-// imports reset sass file
+// import reset sass file
 @import "base/reset";
+
+
+// import modules stylesheets 
+@import '../modules/Authentication/auth';
