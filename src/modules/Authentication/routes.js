@@ -1,6 +1,5 @@
 
 import React from 'react'
-import Loadable from 'react-loadable'
 
 /**
  * Defines module routes, you can use react-router-dom route parameters
@@ -12,10 +11,7 @@ import Loadable from 'react-loadable'
 const routes = [
     {
         path: '/login',
-        component: Loadable({
-            loader: () => import('./components/Login/Login'),
-            loading: () => (<h1>Loading component here</h1>)
-        })
+        component: React.lazy(() => import ('./index'))
     },
 
 ]
