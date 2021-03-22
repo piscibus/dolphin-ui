@@ -1,5 +1,6 @@
 
 import React from 'react'
+import Login from './components/Login/Login'
 
 class index extends React.Component {
     constructor(props){
@@ -11,8 +12,8 @@ class index extends React.Component {
     
     render(){
         return(
-            <div>
-                Example Component
+            <div className='auth-wrapper'>
+                <Login/>
             </div>
         )
     }
