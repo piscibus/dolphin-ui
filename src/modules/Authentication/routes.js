@@ -13,7 +13,10 @@ const routes = [
         path: '/login',
         component: React.lazy(() => import ('./index'))
     },
-
+    {
+        path: '/register',
+        component: React.lazy(() => import ('./components/Register/Register'))
+    }
 ]
 
 export default routes
