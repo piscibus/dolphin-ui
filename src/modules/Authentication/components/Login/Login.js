@@ -7,7 +7,6 @@ import { connect } from 'react-redux'
 const Login = (props) => {
  
     const { authentication } = props.currentResources
-    console.log(authentication)
 
     return (
         <div className="login-wrapper">
