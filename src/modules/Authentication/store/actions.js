@@ -1,6 +1,6 @@
 
 import {
-    EXAMPLE_ACTION
+    SET_LOCALE
 } from './action-types'
 
 
@@ -8,9 +8,9 @@ import {
  * Creates an action with a specified action type and payload
  * @param {*} payload 
  */
-export function exampleActionCreator(payload){
+export function setLocale(payload){
     return {
-        type: EXAMPLE_ACTION,
+        type: SET_LOCALE,
         payload
     }
 }

@@ -2,8 +2,13 @@ import React from 'react'
 import { Button, Form, Input } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { connect } from 'react-redux'
 
 const Login = (props) => {
+ 
+    const { authentication } = props.currentResources
+    console.log(authentication)
+
     return (
         <div className="login-wrapper">
             <Form name="loginForm">
@@ -12,7 +17,7 @@ const Login = (props) => {
                 </div>
                 <Form.Item
                     rules={[
-                        { required: true, message: 'Please enter your email' },
+                        { required: true, message: authentication.emailRequired},
                     ]}
                     name="email"
                 >
@@ -24,13 +29,13 @@ const Login = (props) => {
                     />
                 </Form.Item>
                 <Form.Item rules={[
-                    { required: true, message: 'Please enter your password' },
+                    { required: true, message: authentication.passwordRequired },
                 ]} name="password">
                     <Input.Password prefix={<LockOutlined />} placeholder="Password" size="large" />
                 </Form.Item>
                 <Form.Item>
                     <Button block type="primary" htmlType="submit">
-                        Login
+                        {authentication.login}
                     </Button>
                 </Form.Item>
             </Form>
@@ -38,4 +43,10 @@ const Login = (props) => {
     )
 }
 
-export default Login
+const mapStateToProps = state => {
+    return {
+        currentResources: state.authReducer.currentResources
+    }
+}
+
+export default connect(mapStateToProps)(Login)
