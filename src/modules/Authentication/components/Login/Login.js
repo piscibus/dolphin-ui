@@ -5,18 +5,20 @@ import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
 
 const Login = (props) => {
- 
     const { authentication } = props.currentResources
-
+    const { switchToRegister } = props
     return (
         <div className="login-wrapper">
             <Form name="loginForm">
-                <div className='logo'>
-                    <img src={logo} alt="dolphin logo"/>
+                <div className="logo">
+                    <img src={logo} alt="dolphin logo" />
                 </div>
                 <Form.Item
                     rules={[
-                        { required: true, message: authentication.emailRequired},
+                        {
+                            required: true,
+                            message: authentication.emailRequired,
+                        },
                     ]}
                     name="email"
                 >
@@ -27,14 +29,27 @@ const Login = (props) => {
                         className="email-input"
                     />
                 </Form.Item>
-                <Form.Item rules={[
-                    { required: true, message: authentication.passwordRequired },
-                ]} name="password">
-                    <Input.Password prefix={<LockOutlined />} placeholder="Password" size="large" />
+                <Form.Item
+                    rules={[
+                        {
+                            required: true,
+                            message: authentication.passwordRequired,
+                        },
+                    ]}
+                    name="password"
+                >
+                    <Input.Password
+                        prefix={<LockOutlined />}
+                        placeholder="Password"
+                        size="large"
+                    />
                 </Form.Item>
                 <Form.Item>
                     <Button block type="primary" htmlType="submit">
                         {authentication.login}
+                    </Button>
+                    <Button type="link" onClick={() => switchToRegister()}>
+                        New To Dolphin ? Register Now
                     </Button>
                 </Form.Item>
             </Form>
@@ -42,9 +57,9 @@ const Login = (props) => {
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
-        currentResources: state.authReducer.currentResources
+        currentResources: state.authReducer.currentResources,
     }
 }
 
