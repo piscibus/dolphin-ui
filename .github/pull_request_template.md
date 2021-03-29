@@ -1,14 +1,23 @@
-### What?
-Describe what your trying to implement...
+**What?**
 
-### Why?
-Describe why you are trying to implement...
+Breif description of the feature or fix.
 
-### Task ticket
-Add a link to the task ticket...
+**Why?**
 
-### Mention related issues
-Mention related issues here 
+Why dolphin needs this addition?
 
-### Extra information
-Add any extra information that may be useful...
+**Did you implemented automated tests for this PR?**
+
+Your answer...
+
+**Are the tests passing on Github actions?**
+
+Your answer...
+
+**Are the tests passing on your local machine?**
+
+Your answer...
+
+**Fun facts:**
+
+Fun facts to share about this PR.
