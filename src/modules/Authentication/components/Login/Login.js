@@ -3,6 +3,7 @@ import { Button, Form, Input } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { connect } from 'react-redux'
+import { rules } from './_rules'
 
 const Login = (props) => {
     const { authentication } = props.currentResources
@@ -13,15 +14,7 @@ const Login = (props) => {
                 <div className="logo">
                     <img src={logo} alt="dolphin logo" />
                 </div>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: authentication.emailIsRequried,
-                        },
-                    ]}
-                    name="email"
-                >
+                <Form.Item rules={rules('en').email} name="email">
                     <Input
                         prefix={<UserOutlined />}
                         size="large"
@@ -29,15 +22,7 @@ const Login = (props) => {
                         className="email-input"
                     />
                 </Form.Item>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: authentication.passwordRequired,
-                        },
-                    ]}
-                    name="password"
-                >
+                <Form.Item rules={rules('en').password} name="password">
                     <Input.Password
                         prefix={<LockOutlined />}
                         placeholder="Password"

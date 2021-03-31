@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Form, Input, Alert } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
+import { rules } from '../Login/_rules'
 
 const Register = (props) => {
     const [formData, setFormData] = useState({
@@ -32,12 +33,7 @@ const Register = (props) => {
                 <div className="logo">
                     <img src={logo} alt="dolphin logo" />
                 </div>
-                <Form.Item
-                    rules={[
-                        { required: true, message: 'Please enter your email' },
-                    ]}
-                    name="email"
-                >
+                <Form.Item rules={rules('en').email} name="email">
                     <Input
                         prefix={<UserOutlined />}
                         size="large"
@@ -47,15 +43,7 @@ const Register = (props) => {
                         name="email"
                     />
                 </Form.Item>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please enter your password',
-                        },
-                    ]}
-                    name="password"
-                >
+                <Form.Item rules={rules('en').password} name="password">
                     <Input.Password
                         name="password"
                         onChange={onFormFieldChange}
@@ -64,15 +52,7 @@ const Register = (props) => {
                         size="large"
                     />
                 </Form.Item>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please re-enter your password',
-                        },
-                    ]}
-                    name="repassword"
-                >
+                <Form.Item rules={rules('en').password} name="repassword">
                     <Input.Password
                         name="repassword"
                         onChange={onFormFieldChange}
