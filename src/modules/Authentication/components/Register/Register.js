@@ -2,14 +2,6 @@ import React, { useState } from 'react'
 import { Button, Form, Input, Alert } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
-const validatePassword = (rule, value, callback) => {
-    console.log(value)
-    if (value && value !== 'Secret') {
-        callback('Error!')
-    } else {
-        callback()
-    }
-}
 
 const Register = (props) => {
     const [formData, setFormData] = useState({
@@ -21,7 +13,6 @@ const Register = (props) => {
     const [isMatched, setPasswordMatch] = useState(true)
 
     const doRegister = () => {
-        console.log(formData)
         if (formData.password !== formData.repassword) {
             setPasswordMatch(false)
         }
@@ -36,7 +27,7 @@ const Register = (props) => {
     }
     const { switchToLogin } = props
     return (
-        <div className="register-wrapper">
+        <div className="auth-holder">
             <Form name="registerForm">
                 <div className="logo">
                     <img src={logo} alt="dolphin logo" />
@@ -54,23 +45,6 @@ const Register = (props) => {
                         className="email-input"
                         onChange={onFormFieldChange}
                         name="email"
-                    />
-                </Form.Item>
-                <Form.Item
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please enter your user name',
-                        },
-                    ]}
-                    name="username"
-                >
-                    <Input
-                        name="username"
-                        prefix={<UserOutlined />}
-                        onChange={onFormFieldChange}
-                        placeholder="User Name"
-                        size="large"
                     />
                 </Form.Item>
                 <Form.Item
