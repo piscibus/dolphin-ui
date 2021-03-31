@@ -8,7 +8,7 @@ const Login = (props) => {
     const { authentication } = props.currentResources
     const { switchToRegister } = props
     return (
-        <div className="login-wrapper">
+        <div className="auth-holder">
             <Form name="loginForm">
                 <div className="logo">
                     <img src={logo} alt="dolphin logo" />
@@ -17,7 +17,7 @@ const Login = (props) => {
                     rules={[
                         {
                             required: true,
-                            message: authentication.emailRequired,
+                            message: authentication.emailIsRequried,
                         },
                     ]}
                     name="email"
