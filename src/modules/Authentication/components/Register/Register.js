@@ -61,13 +61,16 @@ const Register = (props) => {
                         name="repassword"
                         onChange={onFormFieldChange}
                         prefix={<LockOutlined />}
-                        placeholder="Re-Enter Password"
+                        placeholder={trans('register.rePassword')}
                         size="large"
                     />
                 </Form.Item>
                 {!isMatched && (
                     <Form.Item>
-                        <Alert message="Passwords Mismatch" type="error" />
+                        <Alert
+                            message={trans('register.wrongPass')}
+                            type="error"
+                        />
                     </Form.Item>
                 )}
                 <Form.Item>
@@ -77,10 +80,10 @@ const Register = (props) => {
                         type="primary"
                         htmlType="submit"
                     >
-                        Register
+                        {trans('register.Register')}
                     </Button>
                     <Button type="link" onClick={() => switchToLogin()}>
-                        Already have An Account ? Login
+                        {trans('register.Login')}
                     </Button>
                 </Form.Item>
                 {getChangeLangDropDown()}

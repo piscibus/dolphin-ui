@@ -12,7 +12,9 @@ const Create = (props) => {
     const trans = (key) => t(key)
     /**change lang by key */
     const changeLang = (key) => {
-        i18n.changeLanguage(key)
+        i18n.changeLanguage(key).then(() => {
+            localStorage.setItem('appLang', getCurrentLang())
+        })
     }
     /**returns dropdown of supported languages for change */
     const getChangeLangDropDown = () => {
@@ -31,7 +33,7 @@ const Create = (props) => {
         return (
             <Dropdown overlay={localsItems()} trigger={['hover']}>
                 <a className="ant-dropdown-link" href="#">
-                    {getCurrentLang()}
+                    {trans('ChangeLang')}
                 </a>
             </Dropdown>
         )
