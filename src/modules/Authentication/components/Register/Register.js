@@ -3,8 +3,11 @@ import { Button, Form, Input, Alert } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { rules } from '../Login/_rules'
+import localisation from '../../../../localisations'
 
 const Register = (props) => {
+    const local = localisation.Create()
+    const { trans, getChangeLangDropDown } = local
     const [formData, setFormData] = useState({
         password: '',
         repassword: '',
@@ -27,6 +30,7 @@ const Register = (props) => {
         setFormData(formData)
     }
     const { switchToLogin } = props
+
     return (
         <div className="auth-holder">
             <Form name="registerForm">
@@ -37,7 +41,7 @@ const Register = (props) => {
                     <Input
                         prefix={<UserOutlined />}
                         size="large"
-                        placeholder="Email"
+                        placeholder={trans('register.Email')}
                         className="email-input"
                         onChange={onFormFieldChange}
                         name="email"
@@ -48,7 +52,7 @@ const Register = (props) => {
                         name="password"
                         onChange={onFormFieldChange}
                         prefix={<LockOutlined />}
-                        placeholder="Password"
+                        placeholder={trans('register.Password')}
                         size="large"
                     />
                 </Form.Item>
@@ -79,6 +83,7 @@ const Register = (props) => {
                         Already have An Account ? Login
                     </Button>
                 </Form.Item>
+                {getChangeLangDropDown()}
             </Form>
         </div>
     )
