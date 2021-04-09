@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Button, Form, Input, Alert, message, Space } from 'antd'
+import { Button, Form, Input, message } from 'antd'
 import logo from '../../../../assets/images/logo.png'
 import { LockOutlined, UserOutlined } from '@ant-design/icons'
 import { Rules } from './_rules'
@@ -9,30 +9,14 @@ const Register = (props) => {
     const local = localisation.Create()
     const { trans, getChangeLangDropDown } = local
     const [form] = Form.useForm()
-    const [formData, setFormData] = useState({
-        password: '',
-        repassword: '',
-        email: '',
-    })
     const [requestStatus, setRequestStatus] = useState({
         fetch: false,
         success: false,
         failure: false,
     })
-    const doRegister = () => {
-        let errorCount = 0
+    const doRegister = (formData) => {
         if (formData.password !== formData.repassword) {
             message.error(trans('wrongPass'))
-            errorCount += 1
-        }
-        if (
-            formData.email.length === 0 ||
-            formData.password.length === 0 ||
-            formData.repassword.length === 0
-        ) {
-            errorCount += 1
-        }
-        if (errorCount > 0) {
             return
         }
         //console.log(RegisterServices);
@@ -53,11 +37,6 @@ const Register = (props) => {
                 success: true,
                 failure: false,
             })
-            setFormData({
-                password: '',
-                repassword: '',
-                email: '',
-            })
             message.success(trans('Registerd Successfully'))
             form.resetFields()
         }
@@ -72,18 +51,12 @@ const Register = (props) => {
         }
         RegisterService(payload, onfetch, onsuccess, onfailure, trans)
     }
-    const onFormFieldChange = (event) => {
-        const target = event.target
-        const value = target.value
-        const name = target.name
-        formData[name] = value
-        setFormData(formData)
-    }
+
     const { switchToLogin } = props
     const { fetch, success, failure } = requestStatus
     return (
         <div className="auth-holder">
-            <Form name="registerForm" form={form}>
+            <Form name="registerForm" onFinish={doRegister} form={form}>
                 <div className="logo">
                     <img src={logo} alt="dolphin logo" />
                 </div>
@@ -94,7 +67,6 @@ const Register = (props) => {
                         size="large"
                         placeholder={trans('Email')}
                         className="email-input"
-                        onChange={onFormFieldChange}
                         name="email"
                     />
                 </Form.Item>
@@ -102,7 +74,6 @@ const Register = (props) => {
                     <Input.Password
                         disabled={fetch}
                         name="password"
-                        onChange={onFormFieldChange}
                         prefix={<LockOutlined />}
                         placeholder={trans('Password')}
                         size="large"
@@ -112,7 +83,6 @@ const Register = (props) => {
                     <Input.Password
                         disabled={fetch}
                         name="repassword"
-                        onChange={onFormFieldChange}
                         prefix={<LockOutlined />}
                         placeholder={trans('rePassword')}
                         size="large"
@@ -122,7 +92,6 @@ const Register = (props) => {
                     <Button
                         loading={fetch}
                         disabled={fetch}
-                        onClick={doRegister}
                         block
                         type="primary"
                         htmlType="submit"
@@ -130,7 +99,7 @@ const Register = (props) => {
                         {trans('Register')}
                     </Button>
                     <Button type="link" onClick={() => switchToLogin()}>
-                        {trans('Login')}
+                        {trans('Already Have An Account')}
                     </Button>
                 </Form.Item>
                 {getChangeLangDropDown()}

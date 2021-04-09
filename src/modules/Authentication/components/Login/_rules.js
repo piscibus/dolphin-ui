@@ -1,25 +1,28 @@
-export const rules = (locale) => {
+import localisation from '../../../../localisations'
+
+export const rules = () => {
+    const { trans } = localisation.Create()
     return {
         email: [
             {
                 required: true,
-                message: 'Email is required',
+                message: trans('email required'),
             },
             {
                 type: 'email',
-                message: 'Please enter a valid email',
+                message: trans('Please enter a valid email'),
             },
         ],
         password: [
             {
                 required: true,
-                message: 'Password is required',
+                message: trans('Password is required'),
             },
-            {
-                pattern: '/^(?=.*d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,20}$/',
-                message:
-                    'Password should at least has a capital letter, small letter',
-            },
+            // {
+            //   pattern: '/^(?=.*d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,20}$/',
+            //     message:
+            //     'Password should at least has a capital letter, small letter',
+            // },
         ],
     }
 }
