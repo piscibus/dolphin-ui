@@ -29,65 +29,71 @@ const Register = (props) => {
         formData[name] = value
         setFormData(formData)
     }
-    const { switchToLogin } = props
 
     return (
-        <div className="auth-holder">
-            <Form name="registerForm">
-                <div className="logo">
-                    <img src={logo} alt="dolphin logo" />
-                </div>
-                <Form.Item rules={rules('en').email} name="email">
-                    <Input
-                        prefix={<UserOutlined />}
-                        size="large"
-                        placeholder={trans('register.Email')}
-                        className="email-input"
-                        onChange={onFormFieldChange}
-                        name="email"
-                    />
-                </Form.Item>
-                <Form.Item rules={rules('en').password} name="password">
-                    <Input.Password
-                        name="password"
-                        onChange={onFormFieldChange}
-                        prefix={<LockOutlined />}
-                        placeholder={trans('register.Password')}
-                        size="large"
-                    />
-                </Form.Item>
-                <Form.Item rules={rules('en').password} name="repassword">
-                    <Input.Password
-                        name="repassword"
-                        onChange={onFormFieldChange}
-                        prefix={<LockOutlined />}
-                        placeholder={trans('register.rePassword')}
-                        size="large"
-                    />
-                </Form.Item>
-                {!isMatched && (
-                    <Form.Item>
-                        <Alert
-                            message={trans('register.wrongPass')}
-                            type="error"
+        <div className="auth-wrapper">
+            <div className="auth-holder">
+                <Form name="registerForm">
+                    <div className="logo">
+                        <img src={logo} alt="dolphin logo" />
+                    </div>
+                    <Form.Item rules={rules('en').email} name="email">
+                        <Input
+                            prefix={<UserOutlined />}
+                            size="large"
+                            placeholder={trans('register.Email')}
+                            className="email-input"
+                            onChange={onFormFieldChange}
+                            name="email"
                         />
                     </Form.Item>
-                )}
-                <Form.Item>
-                    <Button
-                        onClick={doRegister}
-                        block
-                        type="primary"
-                        htmlType="submit"
-                    >
-                        {trans('register.Register')}
-                    </Button>
-                    <Button type="link" onClick={() => switchToLogin()}>
-                        {trans('register.Login')}
-                    </Button>
-                </Form.Item>
-                {getChangeLangDropDown()}
-            </Form>
+                    <Form.Item rules={rules('en').password} name="password">
+                        <Input.Password
+                            name="password"
+                            onChange={onFormFieldChange}
+                            prefix={<LockOutlined />}
+                            placeholder={trans('register.Password')}
+                            size="large"
+                        />
+                    </Form.Item>
+                    <Form.Item rules={rules('en').password} name="repassword">
+                        <Input.Password
+                            name="repassword"
+                            onChange={onFormFieldChange}
+                            prefix={<LockOutlined />}
+                            placeholder={trans('register.rePassword')}
+                            size="large"
+                        />
+                    </Form.Item>
+                    {!isMatched && (
+                        <Form.Item>
+                            <Alert
+                                message={trans('register.wrongPass')}
+                                type="error"
+                            />
+                        </Form.Item>
+                    )}
+                    <Form.Item>
+                        <Button
+                            onClick={doRegister}
+                            block
+                            type="primary"
+                            htmlType="submit"
+                        >
+                            {trans('register.Register')}
+                        </Button>
+                        <Button
+                            type="link"
+                            onClick={() => {
+                                props.history.push('/login')
+                            }}
+                        >
+                            {trans('register.Login')}
+                        </Button>
+                    </Form.Item>
+                    {getChangeLangDropDown()}
+                </Form>
+            </div>
         </div>
     )
 }
