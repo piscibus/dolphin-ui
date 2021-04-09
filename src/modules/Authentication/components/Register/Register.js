@@ -55,55 +55,60 @@ const Register = (props) => {
     const { switchToLogin } = props
     const { fetch, success, failure } = requestStatus
     return (
-        <div className="auth-holder">
-            <Form name="registerForm" onFinish={doRegister} form={form}>
-                <div className="logo">
-                    <img src={logo} alt="dolphin logo" />
-                </div>
-                <Form.Item rules={Rules().email} name="email">
-                    <Input
-                        disabled={fetch}
-                        prefix={<UserOutlined />}
-                        size="large"
-                        placeholder={trans('Email')}
-                        className="email-input"
-                        name="email"
-                    />
-                </Form.Item>
-                <Form.Item rules={Rules().password} name="password">
-                    <Input.Password
-                        disabled={fetch}
-                        name="password"
-                        prefix={<LockOutlined />}
-                        placeholder={trans('Password')}
-                        size="large"
-                    />
-                </Form.Item>
-                <Form.Item rules={Rules().password} name="repassword">
-                    <Input.Password
-                        disabled={fetch}
-                        name="repassword"
-                        prefix={<LockOutlined />}
-                        placeholder={trans('rePassword')}
-                        size="large"
-                    />
-                </Form.Item>
-                <Form.Item>
-                    <Button
-                        loading={fetch}
-                        disabled={fetch}
-                        block
-                        type="primary"
-                        htmlType="submit"
-                    >
-                        {trans('Register')}
-                    </Button>
-                    <Button type="link" onClick={() => switchToLogin()}>
-                        {trans('Already Have An Account')}
-                    </Button>
-                </Form.Item>
-                {getChangeLangDropDown()}
-            </Form>
+        <div className="auth-wrapper">
+            <div className="auth-holder">
+                <Form name="registerForm" onFinish={doRegister} form={form}>
+                    <div className="logo">
+                        <img src={logo} alt="dolphin logo" />
+                    </div>
+                    <Form.Item rules={Rules().email} name="email">
+                        <Input
+                            disabled={fetch}
+                            prefix={<UserOutlined />}
+                            size="large"
+                            placeholder={trans('Email')}
+                            className="email-input"
+                            name="email"
+                        />
+                    </Form.Item>
+                    <Form.Item rules={Rules().password} name="password">
+                        <Input.Password
+                            disabled={fetch}
+                            name="password"
+                            prefix={<LockOutlined />}
+                            placeholder={trans('Password')}
+                            size="large"
+                        />
+                    </Form.Item>
+                    <Form.Item rules={Rules().password} name="repassword">
+                        <Input.Password
+                            disabled={fetch}
+                            name="repassword"
+                            prefix={<LockOutlined />}
+                            placeholder={trans('rePassword')}
+                            size="large"
+                        />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button
+                            loading={fetch}
+                            disabled={fetch}
+                            block
+                            type="primary"
+                            htmlType="submit"
+                        >
+                            {trans('Register')}
+                        </Button>
+                        <Button
+                            type="link"
+                            onClick={() => props.history.push('/login')}
+                        >
+                            {trans('Already Have An Account')}
+                        </Button>
+                    </Form.Item>
+                    {getChangeLangDropDown()}
+                </Form>
+            </div>
         </div>
     )
 }

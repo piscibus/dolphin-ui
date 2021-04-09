@@ -49,44 +49,49 @@ const Login = (props) => {
     const { switchToRegister } = props
     const { fetch, success, failure } = requestStatus
     return (
-        <div className="auth-holder">
-            <Form name="loginForm" onFinish={doLogin} form={form}>
-                <div className="logo">
-                    <img src={logo} alt="dolphin logo" />
-                </div>
-                <Form.Item rules={rules().email} name="email">
-                    <Input
-                        disabled={fetch}
-                        prefix={<UserOutlined />}
-                        size="large"
-                        placeholder={trans('Email')}
-                        className="email-input"
-                    />
-                </Form.Item>
-                <Form.Item rules={rules().password} name="password">
-                    <Input.Password
-                        disabled={fetch}
-                        prefix={<LockOutlined />}
-                        placeholder={trans('Password')}
-                        size="large"
-                    />
-                </Form.Item>
-                <Form.Item>
-                    <Button
-                        loading={fetch}
-                        disabled={fetch}
-                        block
-                        type="primary"
-                        htmlType="submit"
-                    >
-                        {trans('Login')}
-                    </Button>
-                    <Button type="link" onClick={() => switchToRegister()}>
-                        {trans('New To Dolphin')}
-                    </Button>
-                </Form.Item>
-                {getChangeLangDropDown()}
-            </Form>
+        <div className="auth-wrapper">
+            <div className="auth-holder">
+                <Form name="loginForm" onFinish={doLogin} form={form}>
+                    <div className="logo">
+                        <img src={logo} alt="dolphin logo" />
+                    </div>
+                    <Form.Item rules={rules().email} name="email">
+                        <Input
+                            disabled={fetch}
+                            prefix={<UserOutlined />}
+                            size="large"
+                            placeholder={trans('Email')}
+                            className="email-input"
+                        />
+                    </Form.Item>
+                    <Form.Item rules={rules().password} name="password">
+                        <Input.Password
+                            disabled={fetch}
+                            prefix={<LockOutlined />}
+                            placeholder={trans('Password')}
+                            size="large"
+                        />
+                    </Form.Item>
+                    <Form.Item>
+                        <Button
+                            loading={fetch}
+                            disabled={fetch}
+                            block
+                            type="primary"
+                            htmlType="submit"
+                        >
+                            {trans('Login')}
+                        </Button>
+                        <Button
+                            type="link"
+                            onClick={() => props.history.push('/register')}
+                        >
+                            {trans('New To Dolphin')}
+                        </Button>
+                    </Form.Item>
+                    {getChangeLangDropDown()}
+                </Form>
+            </div>
         </div>
     )
 }

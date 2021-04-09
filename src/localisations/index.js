@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, Input, Alert, Dropdown, Menu } from 'antd'
+import { Button, Dropdown, Menu } from 'antd'
 import { useTranslation } from 'react-i18next'
 /**Component Wrapper for locals */
 const Create = (props) => {
@@ -32,9 +32,7 @@ const Create = (props) => {
         )
         return (
             <Dropdown overlay={localsItems()} trigger={['hover']}>
-                <a className="ant-dropdown-link" href="#">
-                    {trans('ChangeLang')}
-                </a>
+                <span className="ant-dropdown-link">{trans('ChangeLang')}</span>
             </Dropdown>
         )
     }

@@ -10,11 +10,11 @@ import React from 'react'
 const routes = [
     {
         path: '/login',
-        component: React.lazy(() => import('./index')),
+        component: React.lazy(() => import('./components/Login/Login')),
     },
     {
         path: '/register',
-        component: React.lazy(() => import('./index')),
+        component: React.lazy(() => import('./components/Register/Register')),
     },
 ]
 
