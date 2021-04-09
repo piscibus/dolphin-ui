@@ -16,7 +16,8 @@ export const rules = (locale) => {
                 message: 'Password is required',
             },
             {
-                pattern: '/^(?=.*d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,20}$/',
+                pattern:
+                    '^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{6,20})',
                 message:
                     'Password should at least has a capital letter, small letter',
             },
