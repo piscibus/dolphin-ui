@@ -1,11 +1,16 @@
 {
-    "ChangeLang": "تغير اللغة",
-    "register": {
-        "Email": "البريد الاليكترونى",
-        "Password": "كلمة السر",
-        "rePassword": "اعد كتابة كلمة السر",
-        "wrongPass": "كلمة السر غير مطابقة",
-        "Register": "تسجيل",
-        "Login": "مستخدم سابق؟ قم بتسدخيل دخول"
-    }
+    "ChangeLang": "تغيير اللغة",
+    "Email": "البريد الإلكتروني",
+    "Password": "كلمة المرور",
+    "rePassword": "إعادة كتابة كلمة المرور",
+    "wrongPass": "كلمة المرور غير مطابقة",
+    "Register": "تسجيل",
+    "Login": "مسجل بالفعل؟ تسجيل الدخول",
+    "Something Went Wrong": "هناك خطأ ما",
+    "Registerd Successfully": "تم التسجيل بنجاح",
+    "email required": "البريد الإلكتروني مطلوب",
+    "Please enter a valid email": "يرجى إدخال البريد الإلكتروني الصحيح",
+    "Password is required": "كلمة المرور مطلوبة",
+    "ar": "عربى",
+    "en": "الإنجليزية"
 }
