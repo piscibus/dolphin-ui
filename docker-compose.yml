@@ -1,12 +1,25 @@
 version: '3'
 services:
-  dev:
-    stdin_open: true
+  react:
     build:
       context: .
-      dockerfile: ./docker/Dockerfile.dev
-    ports:
-      - "3000:3000"
+      dockerfile: ./docker/Dockerfile
+    networks:
+      - dolphin
     volumes:
-      - "/app/node_modules"
-      - "./:/app"
+      - dolphin-volume:/var/www/html
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    networks:
+      - dolphin
+    volumes:
+      - dolphin-volume:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/nginx.conf
+networks:
+  dolphin:
+    driver: bridge
+volumes:
+  dolphin-volume:
+    driver: local
