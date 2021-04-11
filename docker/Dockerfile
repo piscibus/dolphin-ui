@@ -9,5 +9,5 @@ ENV PATH /var/www/html/node_modules/.bin:$PATH
 
 COPY . /var/www/html
 
-RUN yarn install --production --silent
-RUN yarn build --silent
+RUN yarn install
+RUN yarn build
