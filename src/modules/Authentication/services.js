@@ -1,6 +1,4 @@
-import React from 'react'
-import { post } from '../../services'
-import localisation from '../../localisations'
+import service from '../../services'
 
 const RegisterService = async (
     payload,
@@ -14,10 +12,13 @@ const RegisterService = async (
     try {
         payload = {
             ...payload,
-            client_id: '2',
-            client_secret: 'VqCDubRXgCjgSLvlwUdUMcJ8YYimoubzcKz7VX1L',
+            client_id: process.env.REACT_APP_CLIENT_ID,
+            client_secret: process.env.REACT_APP_CLIENT_SECRET,
         }
-        result = await post('/registration/email?include=token', payload)
+        result = await service.post(
+            '/registration/email?include=token',
+            payload
+        )
     } catch (error) {
         let errorsString = ''
         const { response } = error
@@ -59,10 +60,10 @@ const LoginService = async (
     try {
         payload = {
             ...payload,
-            client_id: '2',
-            client_secret: 'VqCDubRXgCjgSLvlwUdUMcJ8YYimoubzcKz7VX1L',
+            client_id: process.env.REACT_APP_CLIENT_ID,
+            client_secret: process.env.REACT_APP_CLIENT_SECRET,
         }
-        result = await post('/login/email?include=token', payload)
+        result = await service.post('/login/email?include=token', payload)
     } catch (error) {
         let errorsString = ''
         const { response } = error
