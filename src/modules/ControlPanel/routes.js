@@ -10,7 +10,7 @@ import React from 'react'
 const routes = [
     {
         path: '/',
-        isAuth: true,
+        protected: false,
         component: React.lazy(() => import('./components/Profile/Profile')),
     },
 ]

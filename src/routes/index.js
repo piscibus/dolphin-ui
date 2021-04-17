@@ -62,7 +62,7 @@ const Routes = ({ isAuthenticated, roles }) => {
         <Router>
             <Switch>
                 {routes.map((route, i) => {
-                    if (route.isAuth) {
+                    if (route.protected) {
                         return (
                             <PrivateRoute
                                 roles={roles}
