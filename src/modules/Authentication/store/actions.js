@@ -1,17 +1,12 @@
-
-import {
-    SET_LOCALE
-} from './action-types'
-
+import { SET_LOCALE } from './action-types'
 
 /**
  * Creates an action with a specified action type and payload
- * @param {*} payload 
+ * @param {*} payload
  */
-export function setLocale(payload){
+export function setLocale(payload) {
     return {
         type: SET_LOCALE,
-        payload
+        payload,
     }
 }
-    

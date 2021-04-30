@@ -1,6 +1,7 @@
+import React from 'react'
 import localisation from '../../../../localisations'
 
-export const rules = () => {
+export const Rules = () => {
     const { trans } = localisation.Create()
     return {
         email: [
@@ -18,11 +19,6 @@ export const rules = () => {
                 required: true,
                 message: trans('Password is required'),
             },
-            // {
-            //   pattern: '/^(?=.*d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{6,20}$/',
-            //     message:
-            //     'Password should at least has a capital letter, small letter',
-            // },
         ],
     }
 }

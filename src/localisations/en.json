@@ -1,11 +1,19 @@
 {
     "ChangeLang": "Change Language",
-    "register": {
-        "Email": "Email",
-        "Password": "Password",
-        "rePassword": "Rewrite Your Password",
-        "wrongPass": "Password Mismatch",
-        "Register": "Register",
-        "Login": "Already have An Account ? Login"
-    }
+    "Email": "Email",
+    "Password": "Password",
+    "rePassword": "Rewrite Your Password",
+    "wrongPass": "Password Mismatch",
+    "Register": "Register",
+    "Already Have An Account": "Already have An Account ? Login",
+    "Something Went Wrong": "Something Went Wrong",
+    "Registerd Successfully": "Registerd Successfully",
+    "email required": "Email Is Required",
+    "Please enter a valid email": "Please enter a valid email",
+    "Password is required": "Password is required",
+    "ar": "ar",
+    "en": "en",
+    "LoggedIn Successfully": "LoggedIn Successfully",
+    "Login": "Login",
+    "New To Dolphin": "New To Dolphin ? Register Now"
 }
