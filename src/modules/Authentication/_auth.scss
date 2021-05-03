@@ -1,0 +1,30 @@
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: initial;
+    height: 100vh;
+    background: #fafafa;
+    .auth-holder {
+        background-color: #fff;
+        padding: 40px 8px 48px;
+        width: 380px;
+        border: 1px solid #e9e9e9;
+        border-radius: 4px;
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            img {
+                width: 100px;
+            }
+        }
+        .ant-form-item {
+            padding: 0px 25px;
+        }
+        .ant-btn-link {
+            padding: 0px;
+        }
+    }
+}

@@ -5,6 +5,10 @@
 */
 // import { EXAMPLE_ACTION } from './'
 
+import { ar } from "../../../assets/lang/ar";
+import { en } from "../../../assets/lang/en";
+import { SET_LOCALE } from "./action-types";
+
 
 
 /**
@@ -12,6 +16,9 @@
  */
 const initialState = {
     isAuthenticated: false,
+    currentResources: {},
+    currentLocale: 'en',
+    currentDirection: 'ltr',
 };  
 
 
@@ -24,8 +31,8 @@ const initialState = {
 
 const reducer = (state = initialState, {type, payload = null}) => {
     switch (type) {
-        case 'EXAMPLE_ACTION':
-            return example(state, payload)
+        case SET_LOCALE:
+            return setLocale(state, payload)
         default:
             return state;
     }
@@ -37,9 +44,10 @@ const reducer = (state = initialState, {type, payload = null}) => {
  * @param {Object} payload 
  * @return {Object} state
  */
-function example(state, payload) {
+function setLocale(state, payload) {
+    console.log(state, payload)
     return {
-      state
+        ...state, currentLocale: payload, currentResources: payload === 'en' ? en : ar, currentDirection: payload === 'en' ? 'ltr' : 'rtl'
     }
 }
 

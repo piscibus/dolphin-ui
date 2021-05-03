@@ -1,21 +1,5 @@
-
-import React from 'react'
-
-class index extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
-    
-    render(){
-        return(
-            <div>
-                Example Component
-            </div>
-        )
-    }
+const Index = (props) => {
+    return ''
 }
 
-export default index
+export default Index
